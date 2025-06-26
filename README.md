@@ -23,7 +23,7 @@ You can find the course at https://codewithmosh.com
 
 ## Understanding the Application Layers
 
-<img src="/react-course-part2-starter/src/assets/Application Layers.png">
+<img src="/public/Application Layers.png">
 
 ### API Client
 
