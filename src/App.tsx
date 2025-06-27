@@ -1,18 +1,23 @@
 import { useReducer } from "react";
 import "./App.css";
-import LoginStatus from "./state-management/LoginStatus";
-import taskReducer from "./state-management/reducers/tasksReducer";
 import NavBar from "./state-management/NavBar";
 import HomePage from "./state-management/HomePage";
+import authReducer from "./state-management/reducers/authReducer";
+import AuthContext from "./state-management/contexts/authContext";
+import taskReducer from "./state-management/reducers/tasksReducer";
 import TasksContext from "./state-management/contexts/tasksContext";
 
 function App() {
-	const [tasks, dispatch] = useReducer(taskReducer, []);
+	const [tasks, tasksDispatch] = useReducer(taskReducer, []);
+	const [user, authDispatch] = useReducer(authReducer, "");
+
 	return (
-		<TasksContext.Provider value={{ tasks, dispatch }}>
-			<NavBar />
-			<HomePage />
-		</TasksContext.Provider>
+		<AuthContext.Provider value={{ user, dispatch: authDispatch }}>
+			<TasksContext.Provider value={{ tasks, dispatch: tasksDispatch }}>
+				<NavBar />
+				<HomePage />
+			</TasksContext.Provider>
+		</AuthContext.Provider>
 	);
 }
 
