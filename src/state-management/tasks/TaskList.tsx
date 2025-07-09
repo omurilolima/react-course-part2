@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import TasksContext from "./tasksContext";
-import useAuth from "../auth/useAuth";
+import useAuthStore from "../auth/store";
 
 //  Hook
 const useTasks = () => useContext(TasksContext);
@@ -8,11 +8,11 @@ const useTasks = () => useContext(TasksContext);
 // Component
 const TaskList = () => {
 	const { tasks, dispatch } = useTasks();
-	const { user } = useAuth();
+	const { username } = useAuthStore();
 
 	return (
 		<>
-			<p>User: {user}</p>
+			<p>User: {username}</p>
 			<button
 				onClick={() =>
 					dispatch({
