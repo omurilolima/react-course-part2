@@ -30,7 +30,7 @@ const useCounterStore = create<CounterStore>((set) => ({
 }));
 
 // If in development environment, call the mountStoreDevtool
-// passagin a name to the store and the custom hook
+// passing a name to the store and the custom hook
 // Back to the browser, you will see the name of the store in the components tab
 // Click it and you will see the content of the store
 if (process.env.NODE_ENV === "development")
